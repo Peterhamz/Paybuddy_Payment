@@ -9,7 +9,7 @@ const Welcome = () => {
 
   const login = (e) => {
     e.preventDefault();
-    navigate("/login");
+    window.location.href=`${state.emailDomain}`;
   }
 
   return (
@@ -17,7 +17,7 @@ const Welcome = () => {
       <div className="welcome__content">
         <img src={successScreen} className="img-fluid" />
           <div className="successMessage">
-            <h1>Congratulations {state}</h1>
+            <h1>Congratulations {state.firstName}</h1>
             <p>An email verification link has been sent to you</p>
             <button onClick={(e) => login(e)}>Continue</button>
         </div>
