@@ -109,8 +109,10 @@ const Register =()=> {
         const data = res.data
         setRegFormData(loginState)
         setIsLoading(false)
+        let emailDomain = email.split("@");
+        emailDomain = `https://${emailDomain[1]}`;
         if(res.data.code === -1) notifyWarning(data.description)
-        else navigate("/welcome", { state: firstName });
+        else navigate("/welcome", { state: {firstName:firstName,emailDomain:emailDomain} });
     })
     .catch(err => {
         console.log(err)
